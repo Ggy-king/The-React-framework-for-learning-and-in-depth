@@ -1,0 +1,7 @@
+
+
+
+ dangerouslySetInnerHTML={{ __html: value }}
+ # {}中是表达式
+{__html: value} 是对象 
+__html html中的内容

@@ -1,0 +1,12 @@
+# jsx语法
+
+$ JSX语法标签类型
+
+{
+    1 第一种标签 普通的html标签   <div>
+    2 第二种标签 组件标签     <App>                          /组加标签开头字母必须大写/
+}
+
+$ JSX写法
+
+ReactDOM.render(<App />, document.getElementById('root'));

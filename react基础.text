@@ -1,0 +1,97 @@
+1 # 将引入的APP挂载到页面上
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
+2 # 定义类此组件最外层只能有一个标签
+$ 可以考虑站位符组件
+class TodoList extends Component {
+    render() {
+        return (
+            <Fragment>
+            <input />
+            <ul>
+                <li></li>
+                <li></li>
+            </ul>
+            
+            </Fragment>
+        );
+    }
+}
+
+3 # constructor(){}函数
+$ 当组件开始执行之前,会执行的函数 并且只执行一次
+
+constructor(props) {
+        # 接收props参数
+        super(props);
+        # 传递给它的基类构造函数                      
+                                                      # 可以把一些this函数绑定写在这里 只执行一遍
+        this.state = {                           
+            # 定义数据只能传给state里
+            inputValue: 'hello world',
+            list:[]
+        }
+   }
+
+
+{
+    标签内书写数据绑定需要加尖括号
+}
+
+4 # setState({}) 改变state中数据的方法
+
+setState({
+    value: this.value
+})
+
+<ul>
+                 
+5 # 循环等语句需要使用花括号包裹  还有函数方法             
+{
+    this.state.list.map((value,index) => {
+                       
+    # map是循环的意思
+                        
+    return <li key={index}>{value}</li>
+                       
+    # 要有key值 使性能更高
+                      
+    # 结果需要return出来
+                  
+})                  
+}                            
+</ul>
+
+
+6 # keyCode SCILL码
+   13 是回车键
+
+7 # JSX注释
+{/* jkljhklj */}
+
+8 # label标签 
+
+<label htmlFor="myinput">请输入内容</label>
+<input id="myinput"  />
+   $ htmlFor 等价于html中的for 聚焦input
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
