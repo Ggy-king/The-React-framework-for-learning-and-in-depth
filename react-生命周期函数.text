@@ -1,0 +1,80 @@
+# react生命周期函数
+# 以下是按顺序排列
+
+constructor(props) {                                        # 组件挂载之前
+    super(props);
+    this.state = {}
+
+}
+
+# Mounting 过程
+componentWillMount() {                                    # 组件将要挂载
+    console.log('componentWillUnmount');
+}
+
+render() {                                                  # 组件正在挂载
+    console.log('render')
+    return (
+    <div>hello world</div>
+    )
+}
+
+componentDidMount() {                                       #  组件挂载完成
+    console.log('componentDidMount');
+}
+
+
+# Updation 数据更新过程
+# state props 优先级为state父组件数据 但到了子组件中间是先执行子props
+$ props 
+
+
+# 下面这个生命函数是在组件中的       
+componentWillReceiveProps() {                         # 组件中props数据改变时 在子组件渲染之间执行
+    console.log('componentWillReceiveProps')
+}
+
+shouldComponentUpdate() {
+    console.log('shouldComponentUpdate');                  # false的意思是 如果数据没有更新则下面的函数不会执行 提升性能
+    return false;
+        
+}
+
+componentWillUpdate() {
+    console.log('componentWillUpdate');
+}
+
+# render(){}
+
+componentDidUpdate() {
+    console.log('componentDidUpdate');
+}
+
+$ state
+shouldComponentUpdate() {
+    console.log('shouldComponentUpdate');                  # false的意思是 如果数据没有更新则下面的函数不会执行 提升性能
+    return false;
+        
+}
+
+componentWillUpdate() {
+    console.log('componentWillUpdate');
+}
+
+# render(){}
+
+componentDidUpdate() {
+    console.log('componentDidUpdate');
+}
+
+
+# Unmount
+ componentWillUnount(){
+        console.log('componentWillUnmount');
+}
+
+
+
+
+
+
