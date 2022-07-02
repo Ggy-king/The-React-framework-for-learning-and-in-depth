@@ -1,0 +1,43 @@
+# React
+
+# 当页面中props发生变化时执行
+componentWillReceiveProps(nextProps) {              #nextProps 是当前props改变的内容获取
+        
+    }
+
+
+     # 只在挂载时执行
+    componentDidMount() {
+        let url = 'https://www.fastmock.site/mock/be8e9126f34fd985aaad5cbe6e046fd6/react/api/getDate'
+        # 获取父id
+        const id = this.props.match.params.id;
+        # 判断id是否存在 不存在返回默认值
+        if (id) {
+            url = url + '?id=' + id;
+        }
+        axios.get(url)
+            .then((res) => {
+                this.setState({
+                    data: res.data.data.data
+                })
+            })
+
+    }
+
+
+# Switch 包裹后不在匹配其他路径 单一性
+ <Switch>
+    {/* :id接收参数  加?表示不传参数时默认为 / */}
+    <Route path='/detail' element={<Detail />} />
+    <Route path='/:id?' element={<PageList />} />
+</Switch>
+
+
+# 很多时候后端传递的数据带标签 会以字符串的形式传递来
+
+    解决办法是可以通过危险函的形式传递进来
+
+<div dangerouslySetInnerHTML={{ __html: this.state.content }}></div>
+
+# 导出路由 对组件进行包装即可以让组件调用其他处路由
+withRouter 又过时了
